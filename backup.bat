@@ -18,10 +18,19 @@ if exist "%src%" (
 
 :loop
 
-rd /q /s "%dst%" 2>nul
-echo d|xcopy /s /y "%src%" "%dst%" > nul
-@echo 백업 : %dst%
-
+rd /q /s "%dst%1" 2>nul
+echo d|xcopy /s /y "%src%" "%dst%1" > nul
+@echo 백업 : %dst%1
 TIMEOUT 180
-goto :loop
 
+rd /q /s "%dst%2" 2>nul
+echo d|xcopy /s /y "%src%" "%dst%2" > nul
+@echo 백업 : %dst%2
+TIMEOUT 180
+
+rd /q /s "%dst%3" 2>nul
+echo d|xcopy /s /y "%src%" "%dst%3" > nul
+@echo 백업 : %dst%3
+TIMEOUT 180
+
+goto :loop
